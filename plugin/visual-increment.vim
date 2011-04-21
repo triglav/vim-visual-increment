@@ -16,6 +16,7 @@ set cpo&vim
 " a:1 - default null, when set to any value, decrement instead
 function! s:doincrement(step, ...)
   " visual block start
+  let start_column = col("'<")
   let start_row = line("'<")
   " visual block end, as well as the cursor position
   let end_row = line("'>")
@@ -39,7 +40,7 @@ function! s:doincrement(step, ...)
         break
       endif
       " move to the next line
-      exe "normal j"
+      call setpos('.', [0, line('.')+1, start_column, 0])
       let i += a:step
     endwhile
   endif
