@@ -25,16 +25,16 @@ function! s:doincrement(step, ...)
 
   if start_row == end_row
     " just increment/decrement the value if only one line is selected
-    exe "normal ".a:step.incrementer
+    exe "normal! ".a:step.incrementer
   else
     " move to the next line, as we are not interested in incrementing the very
     " first one
-    exe "normal j"
+    exe "normal! j"
     " each next line is increased by this value, from the previous one
     let i = a:step
     while 1
       " increment the current line by <i>
-      exe "normal ".i.incrementer
+      exe "normal! ".i.incrementer
       " finish once the last row is incremented
       if line('.') == end_row
         break
