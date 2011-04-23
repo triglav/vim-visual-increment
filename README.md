@@ -52,7 +52,7 @@ for adding or subtracting.
 
 visual-increment is released under the MIT license:
 
-Copyright 2009-2010 Michael Sanders. All rights reserved.
+Copyright 2011 Matej Svec. All rights reserved.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
