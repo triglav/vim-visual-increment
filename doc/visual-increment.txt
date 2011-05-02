@@ -1,12 +1,15 @@
 *visual-increment.txt* create increasing sequence of numbers via visual mode
 
-visual-increment                                *visual-increment*
+visual-increment                                            *visual-increment*
 Last Change: April 21, 2011
 
-|visual-increment-description|  Description
-|visual-increment-usage|        Usage
-|visual-increment-contact|      Contact
-|visual-increment-license|      License
+Description                   |visual-increment-description|
+Usage                         |visual-increment-usage|
+Increment Steps               |visual-increment-steps|
+Letter Sequence               |visual-increment-letter|
+Octal and Hex Sequences       |visual-increment-octal| |visual-increment-hex|
+Contact                       |visual-increment-contact|
+License                       |visual-increment-license|
 
 For Vim version 7.3 or later.
 This plugin only works if 'compatible' is not set.
@@ -14,7 +17,7 @@ This plugin only works if 'compatible' is not set.
 ==============================================================================
 DESCRIPTION                                     *visual-increment-description*
 
-This plugin adds a simple functionality for creating increasing and decreasing
+This plugin adds a simple functionality that creates increasing and decreasing
 number or letter sequences on multiple lines via visual mode.
 
 Simply select the desired columns via visual mode and use standard vim mapping
@@ -23,8 +26,8 @@ for adding or subtracting.
 ==============================================================================
 USAGE                                                 *visual-increment-usage*
 
-1. For example we have an array of 5 items, and we would like to define them:
-        char example[5];
+1. For example, we have an array of 5 items and we would like to define them:
+
         example[0] = 'e';
         example[0] = 'e';
         example[0] = 'e';
@@ -33,29 +36,63 @@ USAGE                                                 *visual-increment-usage*
 
 2. Press <C-V> at the first index and select all the index columns on multiple
    lines, press <C-A>
-        char example[5];
+
         example[0] = 'e';
         example[1] = 'e';
         example[2] = 'e';
         example[3] = 'e';
         example[4] = 'e';
 
-3. Repeat the same by selecting the char values and press <C-X>
-        char example[5];
+==============================================================================
+INCREMENT STEPS                                       *visual-increment-steps*
+
+You can use [count] to define the "increment step" between each line. For
+example, by pressing 5<C-A> at the index column, you will get:
+
+        example[5] = 'e';
+        example[10] = 'e';
+        example[15] = 'e';
+        example[20] = 'e';
+        example[25] = 'e';
+
+==============================================================================
+LETTER SEQUENCE                                      *visual-increment-letter*
+
+You need to add the following line to your |.vimrc| file:
+
+        set nrformats=alpha
+
+The letter sequence is then created via <C-X> as expected:
+
         example[0] = 'e';
         example[1] = 'd';
         example[2] = 'c';
         example[3] = 'b';
         example[4] = 'a';
 
-4. You can use [count] to define the increment step between each line. For
-   example by pressing 5<C-A> at the index column from point 1., you will get:
-        char example[5];
-        example[5] = 'e';
-        example[10] = 'e';
-        example[15] = 'e';
-        example[20] = 'e';
-        example[25] = 'e';
+==============================================================================
+OCTAL AND HEX SEQUENCES        *visual-increment-octal* *visual-increment-hex*
+
+To create octal or hexadecimal sequences, simply add the respective option to
+the [nrformats]:
+
+        set nrformats=aplha,octal,hex
+
+Octal numbers start with a zero:
+
+        example[0] = 01;
+        example[1] = 06;
+        example[2] = 013;
+        example[3] = 020;
+        example[4] = 025;
+
+Hexadecimal numbers start with "0x" or "0X":
+
+        example[0] = 0x1;
+        example[1] = 0x6;
+        example[2] = 0xb;
+        example[3] = 0x10;
+        example[4] = 0x15;
 
 ==============================================================================
 CONTACT                                             *visual-increment-contact*
@@ -68,7 +105,7 @@ LICENSE                                             *visual-increment-license*
 
 visual-increment is released under the MIT license:
 
-Copyright 2009-2010 Michael Sanders. All rights reserved.
+Copyright 2011 Matej Svec. All rights reserved.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
