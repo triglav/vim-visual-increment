@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="visual-increment.vim : Use CTRL+A/X to create increasing sequence of numbers or letters via visual mode" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>visual-increment.vim</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/triglav/vim-visual-increment">Fork Me on GitHub</a>
+
+          <h1 id="project_title">visual-increment.vim</h1>
+          <h2 id="project_tagline">Use CTRL+A/X to create increasing sequence of numbers or letters via visual mode</h2>
+
+          <section id="downloads">
+            <a class="zip_download_link" href="https://github.com/triglav/vim-visual-increment/zipball/master">Download this project as a .zip file</a>
+            <a class="tar_download_link" href="https://github.com/triglav/vim-visual-increment/tarball/master">Download this project as a tar.gz file</a>
+          </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h2>Description</h2>
+
+<p>This plugin adds a simple functionality that creates increasing and decreasing
+number or letter sequences on multiple lines via visual mode.</p>
+
+<p>Simply select the desired columns via visual mode and use standard vim mapping
+for adding or subtracting.</p>
+
+<h2>Usage</h2>
+
+<ol>
+<li>For example, we have an array of 5 items and we would like to define them:</li>
+</ol><div class="highlight">
+<pre><span class="n">example</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="sc">'e'</span><span class="p">;</span>
+<span class="n">example</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="sc">'e'</span><span class="p">;</span>
+<span class="n">example</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="sc">'e'</span><span class="p">;</span>
+<span class="n">example</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="sc">'e'</span><span class="p">;</span>
+<span class="n">example</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="sc">'e'</span><span class="p">;</span>
+</pre>
+</div>
+
+
+<ol>
+<li>Press <code>&lt;C-V&gt;</code> at the first index and select all the index columns on multiple
+lines, press <code>&lt;C-A&gt;</code>:</li>
+</ol><div class="highlight">
+<pre><span class="n">example</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="sc">'e'</span><span class="p">;</span>
+<span class="n">example</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="sc">'e'</span><span class="p">;</span>
+<span class="n">example</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="sc">'e'</span><span class="p">;</span>
+<span class="n">example</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="sc">'e'</span><span class="p">;</span>
+<span class="n">example</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="sc">'e'</span><span class="p">;</span>
+</pre>
+</div>
+
+
+<h3>Increment steps</h3>
+
+<p>You can use <code>[count]</code> to define the "increment step" between each line. For
+example, by pressing <code>5&lt;C-A&gt;</code> at the index column, you will get:</p>
+
+<div class="highlight">
+<pre><span class="n">example</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="sc">'e'</span><span class="p">;</span>
+<span class="n">example</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="sc">'e'</span><span class="p">;</span>
+<span class="n">example</span><span class="p">[</span><span class="mi">15</span><span class="p">]</span> <span class="o">=</span> <span class="sc">'e'</span><span class="p">;</span>
+<span class="n">example</span><span class="p">[</span><span class="mi">20</span><span class="p">]</span> <span class="o">=</span> <span class="sc">'e'</span><span class="p">;</span>
+<span class="n">example</span><span class="p">[</span><span class="mi">25</span><span class="p">]</span> <span class="o">=</span> <span class="sc">'e'</span><span class="p">;</span>
+</pre>
+</div>
+
+
+<h3>Letter sequence</h3>
+
+<p>You need to add the following line to your <code>.vimrc</code> file:</p>
+
+<div class="highlight">
+<pre><span class="k">set</span> <span class="nb">nrformats</span><span class="p">=</span>alpha
+</pre>
+</div>
+
+
+<p>The letter sequence is then created via <code>&lt;C-X&gt;</code> as expected:</p>
+
+<div class="highlight">
+<pre><span class="n">example</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="sc">'e'</span><span class="p">;</span>
+<span class="n">example</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="sc">'d'</span><span class="p">;</span>
+<span class="n">example</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="sc">'c'</span><span class="p">;</span>
+<span class="n">example</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="sc">'b'</span><span class="p">;</span>
+<span class="n">example</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="sc">'a'</span><span class="p">;</span>
+</pre>
+</div>
+
+
+<h3>Octal &amp; Hex sequences</h3>
+
+<p>To create octal or hexadecimal sequences, simply add the respective option to
+the <code>nrformats</code>:</p>
+
+<div class="highlight">
+<pre><span class="k">set</span> <span class="nb">nrformats</span><span class="p">=</span>aplha<span class="p">,</span>octal<span class="p">,</span>hex
+</pre>
+</div>
+
+
+<p>Octal numbers start with a zero:</p>
+
+<div class="highlight">
+<pre><span class="n">example</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mo">01</span><span class="p">;</span>
+<span class="n">example</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mo">06</span><span class="p">;</span>
+<span class="n">example</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mo">013</span><span class="p">;</span>
+<span class="n">example</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mo">020</span><span class="p">;</span>
+<span class="n">example</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="mo">025</span><span class="p">;</span>
+</pre>
+</div>
+
+
+<p>Hexadecimal numbers start with <code>0x</code> or <code>0X</code>:</p>
+
+<div class="highlight">
+<pre><span class="n">example</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mh">0x1</span><span class="p">;</span>
+<span class="n">example</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mh">0x6</span><span class="p">;</span>
+<span class="n">example</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mh">0xb</span><span class="p">;</span>
+<span class="n">example</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mh">0x10</span><span class="p">;</span>
+<span class="n">example</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="mh">0x15</span><span class="p">;</span>
+</pre>
+</div>
+
+
+<h2>License</h2>
+
+<p>visual-increment is released under the MIT license:</p>
+
+<p>Copyright 2011 Matej Švec. All rights reserved.</p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.</p>
+
+<p>The software is provided "as is", without warranty of any kind, express or
+implied, including but not limited to the warranties of merchantability, fitness
+for a particular purpose and noninfringement. In no event shall the authors or
+copyright holders be liable for any claim, damages or other liability, whether
+in an action of contract, tort or otherwise, arising from, out of or in
+connection with the software or the use or other dealings in the software.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">visual-increment.vim maintained by <a href="https://github.com/triglav">triglav</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("<script> 	var _gaq=[['_setAccount','UA-30556434-1'],['_trackPageview']]; 	(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0]; 	g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js'; 	s.parentNode.insertBefore(g,s)}(document,'script')); </script> ");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+
+  </body>
+</html>
