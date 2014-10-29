@@ -27,21 +27,17 @@ function! s:doincrement(step, ...)
     " just increment/decrement the value if only one line is selected
     exe "normal! ".a:step.incrementer
   else
-    " move to the next line, as we are not interested in incrementing the very
-    " first one
-    exe "normal! j"
-    " each next line is increased by this value, from the previous one
-    let i = a:step
-    while 1
-      " increment the current line by <i>
-      exe "normal! ".i.incrementer
-      " finish once the last row is incremented
-      if line('.') == end_row
-        break
-      endif
+    " each next line is increased by <a>, from the previous one
+    let i = 0
+    while line('.') != end_row
       " move to the next line
       call setpos('.', [0, line('.')+1, start_column, 0])
-      let i += a:step
+      " if the current line is shorter, skip it
+      if start_column < col("$")
+        let i += a:step
+        " increment the current line by <i>
+        exe "normal! ".i.incrementer
+      end
     endwhile
   endif
 endfunction
