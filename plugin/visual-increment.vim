@@ -39,9 +39,11 @@ function! s:doincrement(step, ...)
       if line('.') == end_row
         break
       endif
+      if start_column < col("$")
+        let i += a:step
+      endif
       " move to the next line
       call setpos('.', [0, line('.')+1, start_column, 0])
-      let i += a:step
     endwhile
   endif
 endfunction
