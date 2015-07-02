@@ -31,7 +31,10 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <h2>
+        <h1>
+<a id="visual-incrementvim" class="anchor" href="#visual-incrementvim" aria-hidden="true"><span class="octicon octicon-link"></span></a>visual-increment.vim</h1>
+
+<h2>
 <a id="description" class="anchor" href="#description" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description</h2>
 
 <p>This plugin adds a simple functionality that creates increasing and decreasing
@@ -44,25 +47,28 @@ for adding or subtracting.</p>
 <a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
 
 <ol>
-<li>For example, we have an array of 5 items and we would like to define them:</li>
+<li>
+<p>For example, we have an array of 5 items and we would like to define them:</p>
+
+<pre><code>example[0] = 'e';
+example[0] = 'e';
+example[0] = 'e';
+example[0] = 'e';
+example[0] = 'e';
+</code></pre>
+</li>
+<li>
+<p>Press <code>&lt;C-V&gt;</code> at the first index and select all the index columns on multiple
+lines, press <code>&lt;C-A&gt;</code>:</p>
+
+<pre><code>example[0] = 'e';
+example[1] = 'e';
+example[2] = 'e';
+example[3] = 'e';
+example[4] = 'e';
+</code></pre>
+</li>
 </ol>
-
-<div class="highlight highlight-c"><pre>example[<span class="pl-c1">0</span>] = <span class="pl-s1"><span class="pl-pds">'</span>e<span class="pl-pds">'</span></span>;
-example[<span class="pl-c1">0</span>] = <span class="pl-s1"><span class="pl-pds">'</span>e<span class="pl-pds">'</span></span>;
-example[<span class="pl-c1">0</span>] = <span class="pl-s1"><span class="pl-pds">'</span>e<span class="pl-pds">'</span></span>;
-example[<span class="pl-c1">0</span>] = <span class="pl-s1"><span class="pl-pds">'</span>e<span class="pl-pds">'</span></span>;
-example[<span class="pl-c1">0</span>] = <span class="pl-s1"><span class="pl-pds">'</span>e<span class="pl-pds">'</span></span>;</pre></div>
-
-<ol>
-<li>Press <code>&lt;C-V&gt;</code> at the first index and select all the index columns on multiple
-lines, press <code>&lt;C-A&gt;</code>:</li>
-</ol>
-
-<div class="highlight highlight-c"><pre>example[<span class="pl-c1">0</span>] = <span class="pl-s1"><span class="pl-pds">'</span>e<span class="pl-pds">'</span></span>;
-example[<span class="pl-c1">1</span>] = <span class="pl-s1"><span class="pl-pds">'</span>e<span class="pl-pds">'</span></span>;
-example[<span class="pl-c1">2</span>] = <span class="pl-s1"><span class="pl-pds">'</span>e<span class="pl-pds">'</span></span>;
-example[<span class="pl-c1">3</span>] = <span class="pl-s1"><span class="pl-pds">'</span>e<span class="pl-pds">'</span></span>;
-example[<span class="pl-c1">4</span>] = <span class="pl-s1"><span class="pl-pds">'</span>e<span class="pl-pds">'</span></span>;</pre></div>
 
 <h3>
 <a id="increment-steps" class="anchor" href="#increment-steps" aria-hidden="true"><span class="octicon octicon-link"></span></a>Increment steps</h3>
@@ -70,26 +76,29 @@ example[<span class="pl-c1">4</span>] = <span class="pl-s1"><span class="pl-pds"
 <p>You can use <code>[count]</code> to define the "increment step" between each line. For
 example, by pressing <code>5&lt;C-A&gt;</code> at the index column, you will get:</p>
 
-<div class="highlight highlight-c"><pre>example[<span class="pl-c1">5</span>] = <span class="pl-s1"><span class="pl-pds">'</span>e<span class="pl-pds">'</span></span>;
-example[<span class="pl-c1">10</span>] = <span class="pl-s1"><span class="pl-pds">'</span>e<span class="pl-pds">'</span></span>;
-example[<span class="pl-c1">15</span>] = <span class="pl-s1"><span class="pl-pds">'</span>e<span class="pl-pds">'</span></span>;
-example[<span class="pl-c1">20</span>] = <span class="pl-s1"><span class="pl-pds">'</span>e<span class="pl-pds">'</span></span>;
-example[<span class="pl-c1">25</span>] = <span class="pl-s1"><span class="pl-pds">'</span>e<span class="pl-pds">'</span></span>;</pre></div>
+<pre><code>example[5] = 'e';
+example[10] = 'e';
+example[15] = 'e';
+example[20] = 'e';
+example[25] = 'e';
+</code></pre>
 
 <h3>
 <a id="letter-sequence" class="anchor" href="#letter-sequence" aria-hidden="true"><span class="octicon octicon-link"></span></a>Letter sequence</h3>
 
 <p>You need to add the following line to your <code>.vimrc</code> file:</p>
 
-<div class="highlight highlight-vim"><pre><span class="pl-s3">set</span> nrformats=alpha</pre></div>
+<pre><code>set nrformats=alpha
+</code></pre>
 
 <p>The letter sequence is then created via <code>&lt;C-X&gt;</code> as expected:</p>
 
-<div class="highlight highlight-c"><pre>example[<span class="pl-c1">0</span>] = <span class="pl-s1"><span class="pl-pds">'</span>e<span class="pl-pds">'</span></span>;
-example[<span class="pl-c1">1</span>] = <span class="pl-s1"><span class="pl-pds">'</span>d<span class="pl-pds">'</span></span>;
-example[<span class="pl-c1">2</span>] = <span class="pl-s1"><span class="pl-pds">'</span>c<span class="pl-pds">'</span></span>;
-example[<span class="pl-c1">3</span>] = <span class="pl-s1"><span class="pl-pds">'</span>b<span class="pl-pds">'</span></span>;
-example[<span class="pl-c1">4</span>] = <span class="pl-s1"><span class="pl-pds">'</span>a<span class="pl-pds">'</span></span>;</pre></div>
+<pre><code>example[0] = 'e';
+example[1] = 'd';
+example[2] = 'c';
+example[3] = 'b';
+example[4] = 'a';
+</code></pre>
 
 <h3>
 <a id="octal--hex-sequences" class="anchor" href="#octal--hex-sequences" aria-hidden="true"><span class="octicon octicon-link"></span></a>Octal &amp; Hex sequences</h3>
@@ -97,30 +106,33 @@ example[<span class="pl-c1">4</span>] = <span class="pl-s1"><span class="pl-pds"
 <p>To create octal or hexadecimal sequences, simply add the respective option to
 the <code>nrformats</code>:</p>
 
-<div class="highlight highlight-vim"><pre><span class="pl-s3">set</span> nrformats=aplha,octal,hex</pre></div>
+<pre><code>set nrformats=alpha,octal,hex
+</code></pre>
 
 <p>Octal numbers start with a zero:</p>
 
-<div class="highlight highlight-c"><pre>example[<span class="pl-c1">0</span>] = <span class="pl-c1">01</span>;
-example[<span class="pl-c1">1</span>] = <span class="pl-c1">06</span>;
-example[<span class="pl-c1">2</span>] = <span class="pl-c1">013</span>;
-example[<span class="pl-c1">3</span>] = <span class="pl-c1">020</span>;
-example[<span class="pl-c1">4</span>] = <span class="pl-c1">025</span>;</pre></div>
+<pre><code>example[0] = 01;
+example[1] = 06;
+example[2] = 013;
+example[3] = 020;
+example[4] = 025;
+</code></pre>
 
 <p>Hexadecimal numbers start with <code>0x</code> or <code>0X</code>:</p>
 
-<div class="highlight highlight-c"><pre>example[<span class="pl-c1">0</span>] = 0x1;
-example[<span class="pl-c1">1</span>] = 0x6;
-example[<span class="pl-c1">2</span>] = 0xb;
-example[<span class="pl-c1">3</span>] = 0x10;
-example[<span class="pl-c1">4</span>] = 0x15;</pre></div>
+<pre><code>example[0] = 0x1;
+example[1] = 0x6;
+example[2] = 0xb;
+example[3] = 0x10;
+example[4] = 0x15;
+</code></pre>
 
 <h2>
 <a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
 
 <p>visual-increment is released under the MIT license:</p>
 
-<p>Copyright 2011 Matej Švec. All rights reserved.</p>
+<p>Copyright 2011 Matej Svec. All rights reserved.</p>
 
 <p>Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
@@ -145,7 +157,7 @@ connection with the software or the use or other dealings in the software.</p>
     <div id="footer_wrap" class="outer">
       <footer class="inner">
         <p class="copyright">visual-increment.vim maintained by <a href="https://github.com/triglav">triglav</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
 
