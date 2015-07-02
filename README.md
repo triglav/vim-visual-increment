@@ -57,7 +57,7 @@ The letter sequence is then created via `<C-X>` as expected:
 To create octal or hexadecimal sequences, simply add the respective option to
 the `nrformats`:
 
-    set nrformats=aplha,octal,hex
+    set nrformats=alpha,octal,hex
 
 Octal numbers start with a zero:
 
