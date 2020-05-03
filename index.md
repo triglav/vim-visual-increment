@@ -1,5 +1,7 @@
 # visual-increment.vim
 
+![vim-increment](https://i.imgur.com/fJB4xLg.gif)
+
 ## Description
 
 This plugin adds a simple functionality that creates increasing and decreasing
